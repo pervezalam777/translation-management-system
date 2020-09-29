@@ -1,0 +1,34 @@
+{
+    "languages": [
+        "en-in",
+        "hi-in",
+        "bn-in"
+    ],
+    "repositories": {
+        "ebook-ui": {
+            "en-in": {
+                "toc": "সূচি তালিকা",
+                "navBar": {
+                    "search": "Search"
+                }
+            },
+            "hi-in": {
+                "toc": "विषयसूची",
+                "navBar": {
+                    "search": "खोजें"
+                }
+            },
+            "bn-in": {
+                "toc": "সূচি তালিকা",
+                "navBar": {
+                    "search": "Search"
+                }
+            }
+        },
+        "storefront-ui": {
+            "en-in": {},
+            "hi-in": {},
+            "bn-in": {}
+        }
+    }
+}

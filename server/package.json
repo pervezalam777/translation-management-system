@@ -1,0 +1,18 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "translation server api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "language",
+    "translation"
+  ],
+  "author": "pervez",
+  "license": "MIT",
+  "dependencies": {
+    "node-json-db": "^1.1.0"
+  }
+}
