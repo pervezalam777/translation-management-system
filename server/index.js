@@ -3,7 +3,10 @@ const {
   addLanguage, 
   addNewRepo, 
   addOrUpdateAll,
-  updateOne
+  updateOne,
+  getRepoNames,
+  getRepoLanguages
+
 } = require('./db');
 console.log('working...', dbVersion)
 
@@ -27,3 +30,9 @@ addLanguage('bn-in');
 
 updateOne('toc', 'সূচি তালিকা', 'ebook-ui', 'bn-in')
 updateOne('todo', 'সূচি তালিকা', 'ebook-ui', 'bn-in')
+
+const repositories = getRepoNames();
+console.log('repositories', repositories);
+
+const repoLanguages = getRepoLanguages(repositories[0]);
+console.log('repo languages..', repoLanguages)

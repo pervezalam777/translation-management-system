@@ -6,8 +6,11 @@
     ],
     "repositories": {
         "ebook-ui": {
+            "meta": {
+                "invalidated": true
+            },
             "en-in": {
-                "toc": "সূচি তালিকা",
+                "toc": "Table of Content",
                 "navBar": {
                     "search": "Search"
                 }
@@ -26,6 +29,9 @@
             }
         },
         "storefront-ui": {
+            "meta": {
+                "invalidated": true
+            },
             "en-in": {},
             "hi-in": {},
             "bn-in": {}
