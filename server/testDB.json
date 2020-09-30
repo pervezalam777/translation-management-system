@@ -7,7 +7,8 @@
     "repositories": {
         "ebook-ui": {
             "meta": {
-                "invalidated": true
+                "invalidated": true,
+                "useLocalLanguages": false
             },
             "en-in": {
                 "toc": "Table of Content",
@@ -30,11 +31,19 @@
         },
         "storefront-ui": {
             "meta": {
-                "invalidated": true
-            },
-            "en-in": {},
-            "hi-in": {},
-            "bn-in": {}
+                "invalidated": true,
+                "useLocalLanguages": false
+            }
+        }
+    },
+    "user": {
+        "pervez": {
+            "id": "pervez",
+            "username": "pervez",
+            "password": "pervez",
+            "role": [
+                "superAdminUser"
+            ]
         }
     }
 }
