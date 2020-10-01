@@ -1,9 +1,12 @@
 const langAPI = require('./language')
+const jsonFormatter = require('./jsonFormatter')
 const {addUser, UserType} = require("./user")
 
 const publicAccess = {
   getSupportedLanguagesIn:langAPI.getSupportedLanguagesIn,
-  getRepoNames: langAPI.getRepoNames
+  getRepoNames: langAPI.getRepoNames,
+  getAllLanguagesFormattedJSON: jsonFormatter.getAllLanguagesFormattedJSON,
+  getOneLanguageFormattedJSON: jsonFormatter.getOneLanguageFormattedJSON
 }
 
 const apiAccess = {

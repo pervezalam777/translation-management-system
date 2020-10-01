@@ -112,6 +112,7 @@ function addNewRepo(repoName, meta) {
 function addMetaToTranslationValue(value) {
   const date = new Date().toUTCString();
   return {
+    //TODO: Replace it with value$$ to avoid 'value' to be use as key
     value,
     status: TranslationStatus.IN_REVIEW,
     addedDate: date,
@@ -314,6 +315,7 @@ module.exports = {
   addNewTranslation,
   updateAllTranslation,
   updateOne,
+  getSupportedLanguages,
   getSupportedLanguagesIn,
   getRepoNames,
   addOrUpdateMetadata,

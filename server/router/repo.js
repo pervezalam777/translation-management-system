@@ -1,25 +1,14 @@
 const path = require('path');
 const express = require('express');
 
+const authValidator = require('./authValidator');
+
 const {
   UserType, 
   apiAccess
 } = require('../db');
 
 const repoRouter = express.Router();
-
-/**
- * Validate the incoming request ton repo router
- * @param {Object} req http request object
- * @param {Object} res http response object
- * @param {Function} next move to next middleware.
- */
-function validate(req, res, next) {
-  res.locals.validated = true;
-  console.log("VALIDATED")
-  //TODO: 403 forbidden if user is not authorized.
-  next()
-}
 
 /**
  * Create new repository
@@ -103,7 +92,7 @@ function updateOne(req, res) {
 }
 
 //Middleware for authentication change
-repoRouter.use(validate);
+repoRouter.use(authValidator);
 
 // Route for new repository creation
 repoRouter.put('/:repoName', createRepo)
