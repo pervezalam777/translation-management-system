@@ -13,19 +13,22 @@
             "en-in": {
                 "toc": "Table of Content",
                 "navBar": {
-                    "search": "Search"
+                    "search": "Search",
+                    "note": "note english"
                 }
             },
             "hi-in": {
                 "toc": "विषयसूची",
                 "navBar": {
-                    "search": "खोजें"
+                    "search": "खोजें",
+                    "note": "note hindi"
                 }
             },
             "bn-in": {
                 "toc": "সূচি তালিকা",
                 "navBar": {
-                    "search": "Search"
+                    "search": "Search",
+                    "note": "note bangala"
                 }
             }
         },

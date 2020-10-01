@@ -12,7 +12,9 @@ function getSupportedLanguages(repoName){
     } else {
       return db.getData(rootKeys.LANGUAGES);
     }
-  }catch(error){}
+  }catch(error){
+    console.log('Error: on get supported languages', error.message)
+  }
   return []
 }
 
@@ -94,10 +96,13 @@ function addNewRepo(repoName, meta) {
  * @param {Object} options contains repository name
  */
 function addNewTranslation(keyName, values, options){
+  console.log('here----', keyName)
   const {repoName=''} =  options
   const languages = getSupportedLanguages(repoName) //db.getData(rootKeys.LANGUAGES);
+  console.log('languages....', languages)
   for(let lang of languages){
     let path = `${rootKeys.REPOSITORIES}/${repoName}/${lang}/${keyName}`;
+    console.log('path', path)
     try{
       db.getData(path);
       console.log('Error: on add new translation: add action can not update existing key')

@@ -4,7 +4,7 @@
   "description": "translation server api",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon --ignore **/*.json index.js"
   },
   "keywords": [
     "language",
@@ -13,6 +13,11 @@
   "author": "pervez",
   "license": "MIT",
   "dependencies": {
-    "node-json-db": "^1.1.0"
+    "@types/express": "^4.17.8",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "node-json-db": "^1.1.0",
+    "nodemon": "^2.0.4"
   }
 }
