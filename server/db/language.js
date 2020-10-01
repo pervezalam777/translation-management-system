@@ -93,7 +93,7 @@ function getInitData(repoName, meta={}){
  * @param {Object} meta contains meta information of repository
  */
 function addNewRepo(repoName, meta) {
-  const path = `${rootKeys.REPOSITORIES}/${repoName}`
+  const path = `${rootKeys.REPOSITORIES}/${repoName}`;
   try {
     db.getData(path);
   } catch(error) {
@@ -168,10 +168,11 @@ function updateAllTranslation(keyName, values, options){
       const data = db.getData(path);
       if(values[lang] && data != values[lang]){
         data.value = values[lang];
-        db.push(path, data)
+        db.push(path, data);
       }
     } catch(error) {
-      console.log('Error: on update all translation', error.message)
+      console.log('Error: on update all translation', error.message);
+      throw new Error(`${keyName} does not exists`);
     }
   }
 }
@@ -183,16 +184,18 @@ function updateAllTranslation(keyName, values, options){
  * @param {Object} options contains repository and language name
  */
 function updateOne(keyName, value, options) {
-  const {repoName='', lang=''} = options
+  const {repoName='', lang=''} = options;
   const path = `${rootKeys.REPOSITORIES}/${repoName}/${lang}/${keyName}`;
+  console.log('path', path)
   try {
     const data = db.getData(path);
     if(data != value ){
-      data.value = value
+      data.value = value;
       db.push(path, data);
     }
   } catch(error){
-    console.log(`Error: on update one entry: `,error.message)
+    console.log(`Error: on update one entry: `,error.message);
+    throw new Error(`${keyName} does not exists`);
   }
 }
 

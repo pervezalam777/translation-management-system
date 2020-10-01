@@ -30,7 +30,7 @@
                 },
                 "navBar": {
                     "search": {
-                        "value": "Search",
+                        "value": "Search Books",
                         "status": "in review",
                         "addedDate": "Thu, 01 Oct 2020 06:23:43 GMT",
                         "updatedDate": "Thu, 01 Oct 2020 06:23:43 GMT"
@@ -52,7 +52,7 @@
                 },
                 "navBar": {
                     "search": {
-                        "value": "खोजें",
+                        "value": "पुस्तकें खोजें",
                         "status": "in review",
                         "addedDate": "Thu, 01 Oct 2020 06:23:43 GMT",
                         "updatedDate": "Thu, 01 Oct 2020 06:23:43 GMT"
@@ -74,7 +74,7 @@
                 },
                 "navBar": {
                     "search": {
-                        "value": "",
+                        "value": "বই অনুসন্ধান করুন",
                         "status": "in review",
                         "addedDate": "Thu, 01 Oct 2020 06:23:43 GMT",
                         "updatedDate": "Thu, 01 Oct 2020 06:23:43 GMT"

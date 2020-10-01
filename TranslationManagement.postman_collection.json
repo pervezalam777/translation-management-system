@@ -76,6 +76,136 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Update One Language with valid key",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"value\":\"Search Books\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/repo/ebook-ui/update/en-in/navBar/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"repo",
+						"ebook-ui",
+						"update",
+						"en-in",
+						"navBar",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update One Language with invalid key",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"value\":\"Search Books\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/repo/ebook-ui/update/en-in/navBar/searchBar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"repo",
+						"ebook-ui",
+						"update",
+						"en-in",
+						"navBar",
+						"searchBar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Languages with valid key",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"values\":{\r\n        \"en-in\":\"Search Books\",\r\n        \"hi-in\":\"पुस्तकें खोजें\",\r\n        \"bn-in\":\"বই অনুসন্ধান করুন\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/repo/ebook-ui/update-all/navBar/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"repo",
+						"ebook-ui",
+						"update-all",
+						"navBar",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Languages with invalid key",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"values\":{\r\n        \"en-in\":\"Search Books\",\r\n        \"hi-in\":\"पुस्तकें खोजें\",\r\n        \"bn-in\":\"বই অনুসন্ধান করুন\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/repo/ebook-ui/update-all/navBar/searchBar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"repo",
+						"ebook-ui",
+						"update-all",
+						"navBar",
+						"searchBar"
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"protocolProfileBehavior": {}
