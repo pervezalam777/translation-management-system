@@ -12,12 +12,12 @@ apiAccess[UserType.DEV].addNewRepo('storefront-ui');
 apiAccess[UserType.DEV].addNewTranslation('toc', {
   'en-in':'Table of Content',
   'hi-in':'विषयसूची'
-}, 'ebook-ui')
+}, {repoName:'ebook-ui'})
 
 apiAccess[UserType.DEV].addNewTranslation('navBar/search', {
   'en-in':'Search',
   'hi-in':'खोजें'
-}, 'ebook-ui')
+},{ repoName:'ebook-ui'})
 
 apiAccess[UserType.DEV].addLanguage('bn-in');
 

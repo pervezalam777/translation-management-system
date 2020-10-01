@@ -8,6 +8,12 @@ const {
 
 const repoRouter = express.Router();
 
+/**
+ * Validate the incoming request ton repo router
+ * @param {Object} req http request object
+ * @param {Object} res http response object
+ * @param {Function} next move to next middleware.
+ */
 function validate(req, res, next) {
   res.locals.validated = true;
   console.log("VALIDATED")
@@ -15,21 +21,63 @@ function validate(req, res, next) {
   next()
 }
 
-repoRouter.use(validate);
+/**
+ * Create new repository
+ * @param {Object} req http request object
+ * @param {Object} res http response object
+ */
+function createRepo(req, res) {
+  const repoName = req.params.repoName;
+  try{
+    apiAccess[UserType.DEV].addNewRepo(repoName, {})
+    res.status(200).send({success:true})
+  } catch(error) {
+    res.status(409).send({success:false, error:error.message})
+  }
+}
 
-repoRouter.post('/:repoName/add/*', (req, res) => {
+/**
+ * Add new language in each repository
+ * @param {Object} req http request object
+ * @param {Object} res http response object
+ */
+function addNewLanguage(req, res) {
+  const langName = req.params.langName
+  try {
+    apiAccess[UserType.DEV].addLanguage(langName)
+    res.status(200).send({success:true})
+  } catch(error) {
+    res.status(409).send({success:false, error:error.message})
+  }
+}
+
+/**
+ * Add new key and value in each language in requested repository
+ * @param {Object} req http request object
+ * @param {Object} res http response object
+ */
+function addNewKey(req, res) {
   const values = req.body.values
   const repoName = req.params.repoName
-  apiAccess[UserType.DEV]
-    .addNewTranslation(req.params[0], values, {repoName})
-  res.status(200).send({success:true})
-})
+  try {
+    apiAccess[UserType.DEV]
+      .addNewTranslation(req.params[0], values, {repoName})
+    res.status(200).send({success:true})
+  } catch(error) {
+    res.status(409).send({success:false, error:error.message})
+  }
+}
 
-//TODO: remove following 
-repoRouter.get('/:repoName/add/*', (req, res) => {
-  console.log("is validated ",res.locals.validated)
-  console.log('rep route', req.params[0])
-  res.status(200).send({success:true})
-})
+//Middleware for authentication change
+repoRouter.use(validate);
+
+// Route for new repository creation
+repoRouter.put('/:repoName', createRepo)
+
+// Route for adding new language
+repoRouter.put('/language/:langName', addNewLanguage)
+
+// Route for adding new key.
+repoRouter.post('/:repoName/add/*', addNewKey)
 
 module.exports = repoRouter;

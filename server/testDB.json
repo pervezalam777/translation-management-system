@@ -1,44 +1,4 @@
 {
-    "languages": [
-        "en-in",
-        "hi-in",
-        "bn-in"
-    ],
-    "repositories": {
-        "ebook-ui": {
-            "meta": {
-                "invalidated": true,
-                "useLocalLanguages": false
-            },
-            "en-in": {
-                "toc": "Table of Content",
-                "navBar": {
-                    "search": "Search",
-                    "note": "note english"
-                }
-            },
-            "hi-in": {
-                "toc": "विषयसूची",
-                "navBar": {
-                    "search": "खोजें",
-                    "note": "note hindi"
-                }
-            },
-            "bn-in": {
-                "toc": "সূচি তালিকা",
-                "navBar": {
-                    "search": "Search",
-                    "note": "note bangala"
-                }
-            }
-        },
-        "storefront-ui": {
-            "meta": {
-                "invalidated": true,
-                "useLocalLanguages": false
-            }
-        }
-    },
     "user": {
         "pervez": {
             "id": "pervez",
@@ -47,6 +7,124 @@
             "role": [
                 "superAdminUser"
             ]
+        }
+    },
+    "languages": [
+        "en-in",
+        "hi-in",
+        "bn-in",
+        "ta-in"
+    ],
+    "repositories": {
+        "ebook-ui": {
+            "meta": {
+                "invalidated": true,
+                "useLocalLanguages": false
+            },
+            "en-in": {
+                "toc": {
+                    "value": "Table of Content",
+                    "status": "in review",
+                    "addedDate": "Thu, 01 Oct 2020 06:23:43 GMT",
+                    "updatedDate": "Thu, 01 Oct 2020 06:23:43 GMT"
+                },
+                "navBar": {
+                    "search": {
+                        "value": "Search",
+                        "status": "in review",
+                        "addedDate": "Thu, 01 Oct 2020 06:23:43 GMT",
+                        "updatedDate": "Thu, 01 Oct 2020 06:23:43 GMT"
+                    }
+                },
+                "gridToggle": {
+                    "value": "List view English",
+                    "status": "in review",
+                    "addedDate": "Thu, 01 Oct 2020 11:18:08 GMT",
+                    "updatedDate": "Thu, 01 Oct 2020 11:18:08 GMT"
+                }
+            },
+            "hi-in": {
+                "toc": {
+                    "value": "विषयसूची",
+                    "status": "in review",
+                    "addedDate": "Thu, 01 Oct 2020 06:23:43 GMT",
+                    "updatedDate": "Thu, 01 Oct 2020 06:23:43 GMT"
+                },
+                "navBar": {
+                    "search": {
+                        "value": "खोजें",
+                        "status": "in review",
+                        "addedDate": "Thu, 01 Oct 2020 06:23:43 GMT",
+                        "updatedDate": "Thu, 01 Oct 2020 06:23:43 GMT"
+                    }
+                },
+                "gridToggle": {
+                    "value": "List view hindi",
+                    "status": "in review",
+                    "addedDate": "Thu, 01 Oct 2020 11:18:08 GMT",
+                    "updatedDate": "Thu, 01 Oct 2020 11:18:08 GMT"
+                }
+            },
+            "bn-in": {
+                "toc": {
+                    "value": "সূচি তালিকা",
+                    "status": "in review",
+                    "addedDate": "Thu, 01 Oct 2020 06:23:43 GMT",
+                    "updatedDate": "Thu, 01 Oct 2020 06:23:43 GMT"
+                },
+                "navBar": {
+                    "search": {
+                        "value": "",
+                        "status": "in review",
+                        "addedDate": "Thu, 01 Oct 2020 06:23:43 GMT",
+                        "updatedDate": "Thu, 01 Oct 2020 06:23:43 GMT"
+                    }
+                },
+                "gridToggle": {
+                    "value": "List view bn",
+                    "status": "in review",
+                    "addedDate": "Thu, 01 Oct 2020 11:18:08 GMT",
+                    "updatedDate": "Thu, 01 Oct 2020 11:18:08 GMT"
+                }
+            },
+            "ta-in": {
+                "toc": {
+                    "value": "Table of Content",
+                    "status": "in review",
+                    "addedDate": "Thu, 01 Oct 2020 06:23:43 GMT",
+                    "updatedDate": "Thu, 01 Oct 2020 06:23:43 GMT"
+                },
+                "navBar": {
+                    "search": {
+                        "value": "Search",
+                        "status": "in review",
+                        "addedDate": "Thu, 01 Oct 2020 06:23:43 GMT",
+                        "updatedDate": "Thu, 01 Oct 2020 06:23:43 GMT"
+                    }
+                },
+                "gridToggle": {
+                    "value": "",
+                    "status": "in review",
+                    "addedDate": "Thu, 01 Oct 2020 11:18:08 GMT",
+                    "updatedDate": "Thu, 01 Oct 2020 11:18:08 GMT"
+                }
+            }
+        },
+        "storefront-ui": {
+            "meta": {
+                "invalidated": true,
+                "useLocalLanguages": false
+            }
+        },
+        "author-ui": {
+            "meta": {
+                "invalidated": true,
+                "useLocalLanguages": false
+            },
+            "en-in": {},
+            "hi-in": {},
+            "bn-in": {},
+            "ta-in": {}
         }
     }
 }

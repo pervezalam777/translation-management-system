@@ -1,20 +1,31 @@
 const { db, rootKeys } = require('./db')
 
+const TranslationStatus = {
+  IN_REVIEW: 'in review',
+  APPROVED: 'approved',
+  LOCKED: 'locked'
+}
+
 /**
  * Get supported languages in the requested repository
  * @param {String} repoName repository name
  */
 function getSupportedLanguages(repoName){
-  try{  
+  try {  
     const meta = db.getData(`${rootKeys.REPOSITORIES}/${repoName}/meta`);
     if(meta.useLocalLanguages){
       return meta.languages
-    } else {
-      return db.getData(rootKeys.LANGUAGES);
     }
-  }catch(error){
-    console.log('Error: on get supported languages', error.message)
+  } catch(error){
+    console.log('Info: on get supported language: repo does not have its own language set')
   }
+
+  try {
+    return db.getData(rootKeys.LANGUAGES);
+  } catch(error) {
+    console.log('Info: on get supported language: global languages list is not available')
+  }
+
   return []
 }
 
@@ -33,7 +44,9 @@ function addLanguage(langName) {
     db.push(rootKeys.LANGUAGES, data);
     addLanguageToRepo(langName, data[0])
   } else {
-    console.log(`${langName} is already exists`)
+    const error = `${langName} is already exists`;
+    console.log(`Error: on add Language: ${error}`)
+    throw new Error(error)
   }
 }
 
@@ -84,8 +97,25 @@ function addNewRepo(repoName, meta) {
   try {
     db.getData(path);
   } catch(error) {
-    // when repo does not exists
-    db.push(path, getInitData(repoName, meta))
+    db.push(path, getInitData(repoName, meta));
+    return;
+  }
+  console.log('Error: on add repo: repository already exits');
+  throw new Error(`${repoName} already exits`);
+
+}
+
+/**
+ * Add meta to translation value for each language.
+ * @param {String} value translation value
+ */
+function addMetaToTranslationValue(value) {
+  const date = new Date().toUTCString();
+  return {
+    value,
+    status: TranslationStatus.IN_REVIEW,
+    addedDate: date,
+    updatedDate: date
   }
 }
 
@@ -96,24 +126,30 @@ function addNewRepo(repoName, meta) {
  * @param {Object} options contains repository name
  */
 function addNewTranslation(keyName, values, options){
-  console.log('here----', keyName)
-  const {repoName=''} =  options
-  const languages = getSupportedLanguages(repoName) //db.getData(rootKeys.LANGUAGES);
-  console.log('languages....', languages)
+  const {repoName=''} =  options;
+  let alreadyExists = false;
+  const languages = getSupportedLanguages(repoName);
   for(let lang of languages){
     let path = `${rootKeys.REPOSITORIES}/${repoName}/${lang}/${keyName}`;
-    console.log('path', path)
     try{
-      db.getData(path);
-      console.log('Error: on add new translation: add action can not update existing key')
+      const data = db.getData(path);
+      alreadyExists = true;
       break;
     } catch(error){
       if(values[lang]){
-        db.push(path, values[lang])
+        const value = addMetaToTranslationValue(values[lang]);
+        db.push(path, value);
       } else {
-        console.log(`Error: on add new translation: ${keyName} value missing for ${lang}`)
+        console.log(`Info: on add new translation: ${keyName} value missing for ${lang}`);
+        const value = addMetaToTranslationValue('');
+        db.push(path, value);
       }
     }
+  }
+  if(alreadyExists){
+    const error = `${keyName} already exits`;
+    console.log(`Error: on add new translation: ${error}`);
+    throw new Error(error);
   }
 }
 
@@ -125,13 +161,14 @@ function addNewTranslation(keyName, values, options){
  */
 function updateAllTranslation(keyName, values, options){
   const {repoName=''} =  options
-  const languages = getSupportedLanguages(repoName) //db.getData(rootKeys.LANGUAGES);
+  const languages = getSupportedLanguages(repoName)
   for(let lang of languages){
     let path = `${rootKeys.REPOSITORIES}/${repoName}/${lang}/${keyName}`;
     try{
       const data = db.getData(path);
       if(values[lang] && data != values[lang]){
-        db.push(path, values[lang])
+        data.value = values[lang];
+        db.push(path, data)
       }
     } catch(error) {
       console.log('Error: on update all translation', error.message)
@@ -151,7 +188,8 @@ function updateOne(keyName, value, options) {
   try {
     const data = db.getData(path);
     if(data != value ){
-      db.push(path, value);
+      data.value = value
+      db.push(path, data);
     }
   } catch(error){
     console.log(`Error: on update one entry: `,error.message)

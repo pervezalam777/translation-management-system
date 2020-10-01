@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "dca3fa13-28d3-468b-8dd7-7537953d9373",
+		"name": "TranslationManagement",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add New Keys",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"values\":{\r\n        \"en-in\": \"List view English\",\r\n        \"hi-in\": \"List view hindi\",\r\n        \"bn-in\": \"List view bn\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/repo/ebook-ui/add/gridToggle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"repo",
+						"ebook-ui",
+						"add",
+						"gridToggle"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Repository",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/repo/author-ui",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"repo",
+						"author-ui"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add New Language",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/repo/language/ta-in",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"repo",
+						"language",
+						"ta-in"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
