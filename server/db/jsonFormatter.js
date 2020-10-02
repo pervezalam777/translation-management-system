@@ -8,10 +8,8 @@ const { getSupportedLanguages } = require('./language')
 function formatToJSON(data) {
   let language = {}
   const keys = Object.keys(data);
-  console.log('keys ', keys)
   for(let key of keys){
     const meta = data[key];
-    console.log("meta", meta)
     if(meta.value){
       language[key] = meta.value
     } else {
