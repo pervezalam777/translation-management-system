@@ -20,6 +20,9 @@ function downloadAllLanguagesAsJSONFile(req, res) {
   const repoName = req.params.repoName;
   try {
     const data = apiAccess[UserType.DEV].getAllLanguagesFormattedJSON(repoName)
+    const directory = path.join(__dirname, `../temp/${repoName}`);
+    fs.mkdirSync(directory);
+
     //TODO: code for download as file
     res.status(200).send(data)
   } catch(error){
@@ -39,7 +42,8 @@ function downloadALanguageAsJSONFile(req, res) {
     //TODO: file a way to create file in memory.
     // explore writeStream and readStream.
     const directory = path.join(__dirname, `../temp/${repoName}`);
-    fs.mkdirSync(directory);
+    if(!fs.statSync(directory)) fs.mkdirSync(directory);
+    
     const file = path.join(directory, `${lang}.json`);
     fs.writeFileSync(file, JSON.stringify(data, null, 2));
     var filename = path.basename(file);
